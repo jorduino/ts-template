@@ -23,14 +23,6 @@ jobs:
 
             - name: Install dependencies
               run: bun install --frozen-lockfile
-            - name: Install commitlint
-              run: npm install -D @commitlint/cli @commitlint/config-conventional
-            - name: Print versions
-              run: |
-                  git --version
-                  node --version
-                  bun --version
-                  bunx commitlint --version
 
             - name: Validate current commit (last commit) with commitlint
               if: github.event_name == 'push'
