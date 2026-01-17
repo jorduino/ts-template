@@ -1,0 +1,35 @@
+{
+	"name": "ts-template",
+	"version": "0.0.0",
+	"author": "Jordan Habash",
+	"main": "bot.js",
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.11",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
+		"@types/bun": "latest",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"markdownlint-cli": "^0.47.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"description": "Discord Bot for fun",
+	"keywords": [
+		"typescript",
+		"template",
+		"husky",
+		"bun",
+		"biome"
+	],
+	"license": "Apache-2.0",
+	"private": true,
+	"scripts": {
+		"test": "bun test",
+		"lint": "biome check",
+		"format": "bun biome check --write .",
+		"prepare": "husky"
+	},
+	"type": "module"
+}

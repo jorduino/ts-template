@@ -1,0 +1,8 @@
+{
+	"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx}": [
+		"bun run lint"
+	],
+	"*.md": [
+		"markdownlint"
+	]
+}
