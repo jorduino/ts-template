@@ -30,7 +30,7 @@
 		"lint": "biome check",
 		"format": "bun biome check --write .",
 		"prepare": "husky",
-		"start": "src/index.ts"
+		"start": "bun src/index.ts"
 	},
 	"type": "module"
 }
