@@ -72,8 +72,8 @@ const FEATURES: Record<string, FeatureConfig> = {
 
 function assertNotCancelled<T>(value: T | symbol): asserts value is T {
 	if (isCancel(value)) {
-		cancel("Setup cancelled. Re-run with: bun setup/setup.ts");
-		process.exit(0);
+		cancel("Setup cancelled.");
+		process.exit(1);
 	}
 }
 
@@ -315,6 +315,17 @@ async function main() {
 	const kept = selectedFeatures.map((k: string) => `  + ${FEATURES[k].label}`);
 	const removed = deselected.map((k) => `  - ${FEATURES[k].label}`);
 	note([...kept, ...removed].join("\n"), "Features");
+
+	// Amend the initial commit that bun create made so the working tree is clean
+	try {
+		await $`git add -A`.quiet();
+		const hasChanges = await $`git diff --cached --quiet`.quiet().nothrow();
+		if (hasChanges.exitCode !== 0) {
+			await $`git commit --amend --no-edit`.quiet();
+		}
+	} catch {
+		// Not a git repo, skip
+	}
 
 	outro("Done! Run `bun start` to begin.");
 }
