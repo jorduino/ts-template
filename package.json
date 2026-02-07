@@ -32,7 +32,8 @@
 		"format": "bun biome check --write .",
 		"prepare": "husky",
 		"postinstall": "[ -f setup/setup.ts ] && bun setup/setup.ts || true",
-		"start": "bun src/index.ts"
+		"start": "bun src/index.ts",
+		"dev": "bun --hot src/index.ts"
 	},
 	"type": "module"
 }
