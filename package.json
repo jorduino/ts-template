@@ -31,10 +31,8 @@
 		"lint": "biome check",
 		"format": "bun biome check --write .",
 		"prepare": "husky",
+		"postinstall": "[ -f setup/setup.ts ] && bun setup/setup.ts || true",
 		"start": "bun src/index.ts"
 	},
-	"type": "module",
-	"bun-create": {
-		"postinstall": "bun setup/setup.ts"
-	}
+	"type": "module"
 }

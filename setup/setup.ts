@@ -115,7 +115,7 @@ async function main() {
 		placeholder: "0.1.0",
 		defaultValue: "0.1.0",
 		validate: (v) => {
-			if (!/^\d+\.\d+\.\d+/.test(v)) return "Must be valid semver (e.g. 0.1.0)";
+			if (v && !/^\d+\.\d+\.\d+/.test(v)) return "Must be valid semver (e.g. 0.1.0)";
 		},
 	});
 	assertNotCancelled(version);
@@ -281,8 +281,11 @@ async function main() {
 		delete devDeps["@clack/prompts"];
 	}
 
-	// Remove bun-create section (should already be gone via bun create, but just in case)
+	// Remove setup-related entries
 	delete pkg["bun-create"];
+	if (pkg.scripts) {
+		delete (pkg.scripts as Record<string, string>).postinstall;
+	}
 
 	await writePkg(pkg);
 	await removeFiles(["setup"]);
