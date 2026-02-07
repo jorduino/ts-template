@@ -16,7 +16,8 @@
 			"!**/node_modules",
 			"!**/package.json",
 			"!**/bun.lock",
-			"!**/.claude"
+			"!**/.claude",
+			"!**/setup"
 		]
 	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },

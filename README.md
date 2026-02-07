@@ -16,21 +16,32 @@ A modern TypeScript template with Bun, Biome, and pre-configured tooling.
 
 ## Getting Started
 
+### Using `bun create` (recommended)
+
+```bash
+bun create jorduino/ts-template myproject
+```
+
+An interactive setup wizard will guide you through project configuration.
+
+### Manual setup
+
 1. Click **"Use this template"** on GitHub to create your own repository
 2. Clone your new repository
-3. Install dependencies and start developing:
+3. Install dependencies and run the setup wizard:
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
 bun install
-bun start
+bun setup/setup.ts
 ```
 
 ## Scripts
 
 | Command          | Description                  |
 | ---------------- | ---------------------------- |
+| `bun start`      | Run the project              |
 | `bun test`       | Run tests                    |
 | `bun run lint`   | Check for lint/format issues |
 | `bun run format` | Fix lint/format issues       |
